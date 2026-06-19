@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://baitoji.github.io/main-home-leyu-com-cn/sitemap.xml
