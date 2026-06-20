@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫体育 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0b1a2e 0%, #1a2f44 100%);
+            color: #e2e8f0;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+        .hero h1 span {
+            color: #fbbf24;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0.8rem auto 0;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.18);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-top: 1.4rem;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            color: #fde68a;
+        }
+        /* 正文容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.4rem 1.5rem 4rem;
+        }
+        /* 目录感网格布局 */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 700px) {
+            .grid-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem 2.5rem;
+            }
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+            border: 1px solid #eef2f6;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #0f172a;
+        }
+        .card h2 i {
+            display: inline-block;
+            width: 6px;
+            height: 20px;
+            background: #fbbf24;
+            border-radius: 4px;
+            margin-right: 0.25rem;
+        }
+        .card p {
+            font-size: 0.98rem;
+            margin-bottom: 0.7rem;
+            color: #334155;
+        }
+        .card .meta {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+            border-top: 1px solid #edf2f7;
+            padding-top: 0.8rem;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.6rem 0 0.2rem;
+        }
+        .card li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .card li::before {
+            content: "▹";
+            color: #f59e0b;
+            font-size: 1rem;
+        }
+        /* 说明区 — 全宽卡片 */
+        .notice-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 2rem 2rem 2.2rem;
+            margin: 2.4rem 0 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid #fbbf24;
+        }
+        .notice-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+        }
+        .notice-card p {
+            font-size: 0.98rem;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+        .notice-card .highlight {
+            background: #fef9e7;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            margin: 1rem 0 0.2rem;
+            font-size: 0.95rem;
+            border: 1px solid #fde68a;
+        }
+        /* 提示区 */
+        .tip-box {
+            background: #eef9ff;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 1.5rem;
+            border: 1px solid #d0e6f5;
+        }
+        .tip-box h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .tip-box p {
+            font-size: 0.96rem;
+            color: #1e3a5f;
+        }
+        .tip-box .small-note {
+            font-size: 0.88rem;
+            color: #4b6a8c;
+            margin-top: 0.6rem;
+        }
+        /* 相关信息区 */
+        .related {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.8rem 2rem 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef2f6;
+        }
+        .related h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 500px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-item {
+            background: #f8fafc;
+            padding: 0.9rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.93rem;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+        }
+        .related-item strong {
+            color: #0f172a;
+        }
+        /* 链接样式 */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s, border-bottom 0.1s;
+            border-bottom: 1px solid transparent;
+        }
+        a:hover {
+            color: #1e40af;
+            border-bottom-color: #1e40af;
+        }
+        .hero a {
+            color: #fcd34d;
+            border-bottom-color: rgba(252, 211, 77, 0.3);
+        }
+        .hero a:hover {
+            color: #fde68a;
+            border-bottom-color: #fde68a;
+        }
+        .inline-link {
+            color: #2563eb;
+            font-weight: 500;
+        }
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem 1.6rem;
+            }
+            .notice-card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 2.5rem;
+            color: #7b8ba3;
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>📘 <span>熊猫体育</span> · 知识库</h1>
+        <p class="sub">一个围绕信息整理与稳定入口的说明页面。内容经过筛选与结构排布，便于快速定位所需方向。</p>
+        <div class="badge">入口指南 · 目录化布局</div>
+    </header>
+
+    <div class="container">
+        <!-- 网格卡片：目录感布局 -->
+        <div class="grid-layout">
+            <div class="card">
+                <h2><i></i>平台简介</h2>
+                <p>「熊猫体育」是一个以体育信息聚合为定位的站点，提供常见赛事数据、基础资讯以及相关模块索引。整体界面偏向实用与清晰，减少冗余装饰，突出内容本身。</p>
+                <p>如果你需要快速了解某项体育背景或查找近期动态，这里或许能提供一个相对直接的落脚点。</p>
+                <div class="meta">内容方向 · 资讯 / 数据 / 索引</div>
+            </div>
+            <div class="card">
+                <h2><i></i>特点一览</h2>
+                <ul>
+                    <li>信息层级分明，页面布局偏向目录式</li>
+                    <li>重点模块配有简短说明，降低理解成本</li>
+                    <li>配色克制，深色与浅色区域区分明确</li>
+                    <li>链接与交互元素采用强调色，便于识别</li>
+                </ul>
+                <p style="margin-top:0.8rem;">整体来说，这是一个以功能性优先的内容页面。</p>
+            </div>
+            <div class="card">
+                <h2><i></i>使用场景</h2>
+                <p>适合在需要快速浏览体育相关梗概、查阅条目说明或寻找信息入口时参考。页面本身不承载复杂交互，更像一个静态的知识引导页。</p>
+                <p>你可以把它看作一个起点——从这里出发，再根据兴趣深入具体的页面模块。</p>
+                <div class="meta">场景 · 浏览 / 参考 / 索引</div>
+            </div>
+            <div class="card">
+                <h2><i></i>结构说明</h2>
+                <p>本页采用网格卡片 + 独立说明区的构造，每个卡片对应一个主题。下方还设有提示区和相关信息栏，用于补充细节或常见疑问。</p>
+                <p>如果你对某个模块感兴趣，可以直接通过链接跳转至主要站点。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：宽卡片 -->
+        <div class="notice-card">
+            <h3>📌 关于这个入口页</h3>
+            <p>该页面作为 <a href="https://cn-ssl-pandasports.com" class="inline-link">熊猫体育</a> 的辅助介绍页，主要作用是提供信息概览与结构预览。页面本身不收集数据、不嵌入追踪脚本，所有链接均指向同一主站。</p>
+            <p>如果你正在寻找一个清晰、无干扰的起点来了解这个站点，那么当前页面或许恰好符合你的需要。内容保持克制，不包含夸大描述或承诺性表述。</p>
+            <div class="highlight">
+                💡 提示：站点内容会随时间更新，具体模块以实际页面为准。本页仅作为静态说明存在。
+            </div>
+        </div>
+
+        <!-- 提示区 -->
+        <div class="tip-box">
+            <h3>🧭 导航提示</h3>
+            <p>初次接触 <a href="https://cn-ssl-pandasports.com" class="inline-link">熊猫体育</a> 时，建议先浏览首页的大分类，再根据兴趣点开具体条目。页面设计偏向于目录式结构，大部分信息都可以在两级以内找到。</p>
+            <p class="small-note">如果遇到加载缓慢或部分模块无法显示，请检查网络环境或稍后重试。本站未使用过多外部依赖，基本以静态内容为主。</p>
+        </div>
+
+        <!-- 相关信息区 FAQ 摘要 -->
+        <div class="related">
+            <h3>📋 相关信息 · 常见摘录</h3>
+            <div class="related-grid">
+                <div class="related-item">
+                    <strong>内容性质</strong><br>
+                    以体育资讯与数据索引为主，不涉及博彩、投注或违规内容。
+                </div>
+                <div class="related-item">
+                    <strong>访问方式</strong><br>
+                    直接通过浏览器访问 <a href="https://cn-ssl-pandasports.com" class="inline-link">熊猫体育</a>，无需安装额外软件。
+                </div>
+                <div class="related-item">
+                    <strong>页面更新</strong><br>
+                    信息页不定期优化，但不会频繁改动基础结构。
+                </div>
+                <div class="related-item">
+                    <strong>反馈与建议</strong><br>
+                    本站暂无独立的反馈通道，相关信息可在主站页面内查找。
+                </div>
+            </div>
+            <p style="margin-top:1.2rem; font-size:0.9rem; color:#4a5b73; border-top:1px solid #eef2f6; padding-top:1rem;">
+                ⚡ 本页为知识库入口式说明，所有链接均指向同一站点：<a href="https://cn-ssl-pandasports.com" class="inline-link">熊猫体育</a>。
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        © 知识库入口页 · 静态说明 · 内容仅供参考
+    </footer>
+</body>
+</html>
