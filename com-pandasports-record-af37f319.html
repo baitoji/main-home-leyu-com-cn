@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫体育 · 再次相遇的故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            background: #f6f3ee;
+            color: #2c2b2a;
+            line-height: 1.8;
+            padding: 3rem 1.5rem;
+        }
+        .paper {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #fdfbf7;
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+        }
+        @media (max-width: 580px) {
+            body { padding: 1.5rem 1rem; }
+            .paper { padding: 2rem 1.2rem; border-radius: 20px; }
+        }
+
+        .short-hero {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #3a3a38;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+            border-left: 4px solid #b7a48b;
+            padding-left: 1.2rem;
+        }
+        .short-hero span {
+            background: #eae3d8;
+            padding: 0 0.4rem;
+            font-style: italic;
+        }
+        .lead {
+            margin-top: 1.8rem;
+            font-size: 1.05rem;
+            color: #3e3c39;
+            text-indent: 2em;
+        }
+        .lead a {
+            color: #7f6b58;
+            text-decoration: none;
+            border-bottom: 1px dashed #c1b3a1;
+            font-weight: 500;
+            transition: border 0.2s;
+        }
+        .lead a:hover {
+            border-bottom: 2px solid #7f6b58;
+        }
+
+        .story-block {
+            margin: 2rem 0 1.2rem;
+        }
+        .story-block p {
+            margin-bottom: 1.2rem;
+            text-indent: 2em;
+        }
+
+        .feature-list {
+            background: #f4efe8;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            border: 1px solid #e3d9ce;
+        }
+        .feature-list h3 {
+            font-weight: 400;
+            font-size: 1.2rem;
+            letter-spacing: 0.03em;
+            margin-bottom: 1.2rem;
+            color: #4c443c;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .feature-list h3::before {
+            content: "· · ·";
+            color: #b19f8a;
+            font-size: 1rem;
+            letter-spacing: 0.4em;
+        }
+        .feature-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            font-size: 0.98rem;
+            border-bottom: 1px dotted #ddd5ca;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list li::before {
+            content: "◈";
+            position: absolute;
+            left: 0.2rem;
+            color: #9b8976;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            background: #f8f4ee;
+            padding: 1.6rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border-left: 6px solid #bba88f;
+            font-style: italic;
+            color: #3d3a35;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .quote-box p {
+            text-indent: 0;
+            margin: 0.3rem 0;
+        }
+        .quote-box .source {
+            display: block;
+            margin-top: 0.8rem;
+            text-align: right;
+            font-style: normal;
+            font-size: 0.9rem;
+            color: #7f7264;
+        }
+
+        .gentle-end {
+            margin: 2.4rem 0 0.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0d5c8;
+            text-align: center;
+        }
+        .gentle-end p {
+            text-indent: 0;
+            font-size: 0.98rem;
+            color: #4f4a43;
+        }
+        .gentle-end .brand-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.8rem;
+            background: #e7dfd4;
+            color: #3d3933;
+            text-decoration: none;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            transition: background 0.2s, box-shadow 0.2s;
+            border: 1px solid #cdbfaf;
+            letter-spacing: 0.06em;
+        }
+        .gentle-end .brand-link:hover {
+            background: #d6cabc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .faq-note {
+            background: #fcfaf6;
+            padding: 1.5rem 1.8rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border: 1px solid #e7ddd2;
+            margin: 2rem 0 1rem;
+        }
+        .faq-note summary {
+            font-weight: 400;
+            cursor: pointer;
+            color: #524b42;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .faq-note summary::before {
+            content: "↪";
+            margin-right: 0.6rem;
+            color: #a4917c;
+        }
+        .faq-note details[open] summary::before {
+            content: "↕";
+        }
+        .faq-note .answer {
+            padding: 0.8rem 0 0.2rem 1.8rem;
+            color: #4a453e;
+            border-top: 1px dashed #d9cfc2;
+            margin-top: 0.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e6ddd2;
+            margin: 1.8rem 0;
+        }
+        .fine-print {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #8b8278;
+            letter-spacing: 0.02em;
+            margin-top: 2.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="paper">
+
+    <!-- 开场短句：再次访问的邀约 -->
+    <div class="short-hero">
+        再次踏进同一条河流<br>
+        <span>故事还在原地等你</span>
+    </div>
+
+    <!-- 承接段落：收藏与持续关注的思考 -->
+    <div class="story-block">
+        <p class="lead">
+            一个真正值得收藏的地方，从来不需要喧哗的宣告。有时候你只是安静地把它放在书签栏的一角，然后在某天午后，因为一段熟悉的旋律或一缕相似的阳光，忽然想起——原来那里还有未读完的叙述，还有未点开的篇章。<a href="https://com-pandasports.com">熊猫体育</a>便是这样一个存在：它不催促，也不喧闹，却始终在那里，用沉稳的节奏更新着属于运动与陪伴的内容。
+        </p>
+        <p>
+            我最早注意到它，是因为一次偶然的搜索。页面干净，文字平实，没有浮夸的弹窗和闪烁的广告。后来慢慢发现，这里的文章和资讯很少刻意追逐热点，反而更注重梳理赛事的脉络、分享运动背后的故事。于是收藏夹里便多了一个文件夹，名字就叫“熊猫体育”。每隔几天点开，总能看到些新鲜的视角，或是某个老将的采访，或是某场经典比赛的复盘，不急不躁，读来舒服。
+        </p>
+    </div>
+
+    <!-- 特点列表：为什么值得持续关注 -->
+    <div class="feature-list">
+        <h3>持续关注的理由</h3>
+        <ul>
+            <li><strong>叙事克制</strong> —— 不堆砌数据，不制造焦虑，用干净的语言还原赛场内外的温度。</li>
+            <li><strong>内容节奏</strong> —— 更新频率适中，每篇都有足够的信息量和思考空间，适合静下来阅读。</li>
+            <li><strong>视觉友好</strong> —— 版面留白舒适，字体大小和间距都照顾到长时间浏览的眼睛。</li>
+            <li><strong>收藏价值</strong> —— 专题和系列报道结构清晰，便于回溯，适合作为运动文化的微型档案。</li>
+            <li><strong>无打扰体验</strong> —— 没有强制推送，没有自动播放的视频，把选择权交还给读者。</li>
+        </ul>
+    </div>
+
+    <!-- 引用块 / 提示框：温和的共鸣 -->
+    <div class="quote-box">
+        <p>“每次回来，都像翻开一本只写了半页的书；熟悉的笔迹里，总有新的段落悄悄生长。”</p>
+        <span class="source">——一位常读读者的手记</span>
+    </div>
+
+    <!-- 场景描述：再次访问的日常 -->
+    <div class="story-block">
+        <p>
+            我习惯在周末早晨打开它，泡一杯红茶，慢慢滑动页面。有时会看到新上线的赛事回顾，有时是运动员的随笔专栏，偶尔也会发现一些关于运动装备的实用分享——没有夸张的测评标题，只是老老实实地讲体验和感受。这种平实的语气，反而让人更愿意信任。收藏夹里的链接，不知不觉已经存在了快两年，每次点进去都像拜访一位老朋友：不必寒暄，直接坐下聊就好。
+        </p>
+        <p>
+            如果你也在寻找一个可以安心收藏、偶尔回访的体育内容站点，不妨把<a href="https://com-pandasports.com">熊猫体育</a>加入你的书签。它不会用推送轰炸你，但会在你想起它的那一刻，用一篇扎实的文章或一段温暖的影像，接住你的关注。
+        </p>
+    </div>
+
+    <!-- FAQ摘要风格的提示框（非硬广，仅自然补充） -->
+    <div class="faq-note">
+        <details>
+            <summary>常见疑问：如何不错过更新？</summary>
+            <div class="answer">
+                网站没有强制邮件订阅，但你可以将页面添加到浏览器书签，或定期回访。内容通常每周更新 2-3 次，集中在赛事周期和专题策划期间。你还可以在站内使用“关注标签”功能（页面底部轻量工具），为自己喜欢的运动项目设置提醒——不过这一切都基于你的主动选择。
+            </div>
+        </details>
+        <details style="margin-top: 0.6rem;">
+            <summary>内容是否收费？</summary>
+            <div class="answer">
+                目前所有文章、视频和专栏均免费阅读。网站依靠少量非侵入式展示维持运营，没有付费墙，也不存在隐藏内容。你可以安心浏览所有页面。
+            </div>
+        </details>
+    </div>
+
+    <!-- 温和结尾：链接嵌入句子，自然收束 -->
+    <div class="gentle-end">
+        <p>如果你已经读到了这里，或许正是重新打开那个书签的好时机。<br>
+        有些地方值得一再回来，<a href="https://com-pandasports.com" class="brand-link">熊猫体育</a>便是其中之一。</p>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #6b635b;">期待在下一次访问时，与你喜欢的页面重逢。</p>
+    </div>
+
+    <div class="fine-print">
+        <span>— 收藏夹里总有一个安静的角落 —</span>
+    </div>
+
+</div>
+</body>
+</html>
