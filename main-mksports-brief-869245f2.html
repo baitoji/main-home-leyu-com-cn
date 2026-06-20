@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 运动生活的另一种打开方式</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f6f3ee;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'Noto Serif SC', serif;
+            color: #2c2b28;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+        }
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fcfaf7;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem 3rem;
+        }
+        @media (max-width: 500px) {
+            body { padding: 1rem 0.8rem; }
+            .page { padding: 1.8rem 1.2rem 2rem; }
+        }
+
+        .hero {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e2dcd3;
+            padding-bottom: 1.8rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1e1d1b;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #7a7369;
+            font-style: italic;
+            border-left: 3px solid #c7b79b;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+        }
+        .hero .sub span {
+            background: #eeeae3;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-style: normal;
+            font-size: 0.8rem;
+            color: #4f4a42;
+            margin-left: 0.5rem;
+        }
+
+        .backnote {
+            background: #f0ece4;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0 2.4rem;
+            font-size: 0.95rem;
+            border-left: 5px solid #bfa88c;
+            color: #3d3932;
+        }
+        .backnote strong {
+            color: #1e1d1b;
+            font-weight: 600;
+        }
+
+        .intro-block {
+            margin: 2rem 0;
+        }
+        .intro-block p {
+            margin-bottom: 1.5rem;
+            text-indent: 2em;
+            font-size: 1.05rem;
+        }
+        .intro-block p:first-of-type {
+            text-indent: 0;
+        }
+
+        .pull-quote {
+            margin: 2.4rem 0 2rem;
+            padding: 1.2rem 2rem;
+            background: #f7f3ec;
+            border-radius: 30px 8px 30px 8px;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #3f3a33;
+            border: 1px solid #e0d7ca;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .pull-quote::before {
+            content: "“";
+            font-size: 3rem;
+            line-height: 1;
+            color: #b6a58c;
+            position: absolute;
+            left: 0.6rem;
+            top: -0.2rem;
+        }
+        .pull-quote p {
+            margin: 0;
+            text-indent: 0;
+        }
+
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.2rem 0;
+        }
+        .scene-card {
+            flex: 1 1 180px;
+            background: #f9f6f0;
+            border-radius: 24px;
+            padding: 1.2rem 1rem 1rem;
+            border: 1px solid #e5ddd2;
+            transition: all 0.2s;
+        }
+        .scene-card:hover {
+            background: #f3ede2;
+            border-color: #cbb99e;
+            transform: translateY(-2px);
+        }
+        .scene-card .title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 2px dotted #d8cdbb;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+            color: #2b2823;
+        }
+        .scene-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #4f4a41;
+        }
+
+        .faq-mini {
+            background: #f5f1ea;
+            padding: 1.6rem 1.8rem;
+            border-radius: 28px;
+            margin: 2.6rem 0 1.8rem;
+        }
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2c2924;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #3d3831;
+        }
+        .faq-item .a {
+            margin-left: 1rem;
+            color: #585249;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2dbd0;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5f5950;
+        }
+        .footer-note a {
+            color: #4d4439;
+            text-decoration: none;
+            border-bottom: 1px solid #bfaf99;
+            font-weight: 500;
+            transition: border 0.2s;
+        }
+        .footer-note a:hover {
+            border-bottom-color: #8a7b66;
+        }
+
+        .tiny-meta {
+            font-size: 0.7rem;
+            color: #a89d8e;
+            text-align: right;
+            margin-top: 0.3rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>MK体育 · 从日常到赛场</h1>
+        <div class="sub">
+            运动不是远方的事，它就在你每一次呼吸之间
+            <span>专题 · 生活向</span>
+        </div>
+    </div>
+
+    <!-- 背景说明：像杂志编者按 -->
+    <div class="backnote">
+        <strong>编者按</strong> —— 我们习惯把体育当作竞技，却忘了它最初的模样：一场奔跑、一次挥拍、一段和朋友的投篮。  
+        <a href="https://main--mksports.com" style="color:#3d3831; text-decoration:underline; text-underline-offset:3px; font-weight:500;">MK体育</a> 希望捕捉的正是这种朴素而鲜活的力量——不刻意拔高，也不贩卖焦虑，只是让运动重新回到生活的褶皱里。
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="intro-block">
+        <p>
+            几年前我开始跑步，纯粹是为了应付体检单上那几项飘红的数字。后来慢慢发现，每天傍晚沿着河边跑四公里，耳机里放着乱七八糟的播客，风从领口灌进来——那种感觉，比任何打卡都真实。体育从来不是奖牌和纪录的专利，它更像一种语言，你不需要说得有多好，只要开口就够了。
+        </p>
+        <p>
+            这也是我对 <strong>MK体育</strong> 的第一印象：它不急着给你灌输“更高更快更强”，而是先问你今天动了吗？平台上的内容也杂——有职业教练的干货，也有普通人的训练日志，甚至还有深夜球场的故事。你不会感到被说教，反而像翻一本旧杂志，每一页都有人味。
+        </p>
+        <p>
+            后来我试着在周末约朋友打羽毛球，输了十几分，笑得直不起腰。那一刻我突然明白，体育最大的魅力其实是“在一起”。不管是独自刷圈还是组队对抗，那种专注和释放，才是我们真正需要的。而像 <a href="https://main--mksports.com" style="color:#3d3831; text-decoration:underline; text-underline-offset:3px; font-weight:500;">MK体育</a> 这样的地方，恰好给了这种状态一个容器——不华丽，但妥帖。
+        </p>
+    </div>
+
+    <!-- 引用块 -->
+    <div class="pull-quote">
+        <p>“真正重要的不是你跑得多快，而是你愿意穿上跑鞋，走出那扇门。”</p>
+    </div>
+
+    <!-- 特点/场景 卡片式呈现 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <div class="title">🏃 晨间节奏</div>
+            <p>早起半小时，用一组核心训练唤醒身体。不需要器械，客厅的一小块空地就够。MK体育上有一系列十分钟跟练，适合赶时间的人。</p>
+        </div>
+        <div class="scene-card">
+            <div class="title">🏀 社区球场</div>
+            <p>傍晚的篮球场总是最热闹的地方。不管你水平如何，总能凑出一场三对三。出汗、喊叫、击掌——这是最原始的运动社交。</p>
+        </div>
+        <div class="scene-card">
+            <div class="title">🧘 拉伸与恢复</div>
+            <p>很多人忽略了运动后的放松。其实五分钟的拉伸就能让第二天的肌肉舒服很多。找一段安静的音乐，让身体慢慢冷却下来。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 与 提示框风格 -->
+    <div class="faq-mini">
+        <h3>几个常被问起的事</h3>
+        <div class="faq-item">
+            <div class="q">Q: 我完全没有运动基础，该从哪里开始？</div>
+            <div class="a">A: 从走路开始。每天快走20分钟，持续一周后尝试慢跑1公里。别跟别人比，你的对手只有昨天的自己。MK体育上有很多新手向的内容，可以参考。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 运动一定要去健身房吗？</div>
+            <div class="a">A: 不一定。自重训练、户外跑步、跳绳、甚至爬楼梯，都是有效的锻炼。关键是让身体规律地动起来，而不是纠结场地。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 怎么坚持下来？</div>
+            <div class="a">A: 降低期待，别追求完美。今天不想跑，就出去走一走；不想练，就做几个拉伸。保持习惯比单次强度更重要。</div>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>如果你也想让运动成为生活里自然而然的一部分，不妨去 <a href="https://main--mksports.com">MK体育</a> 看看。那里没有夸张的口号，只有真实的人和真实的汗。</p>
+        <div class="tiny-meta">—— 杂志专题 · 生活向 ——</div>
+    </div>
+
+</div>
+</body>
+</html>
